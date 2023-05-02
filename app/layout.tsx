@@ -1,6 +1,9 @@
-import Navbar from "./components/navbar/Navbar";
-import "./globals.css";
 import { Inter } from "next/font/google";
+
+import Navbar from "./components/navbar/Navbar";
+import Modal from "./components/modals/Modal";
+
+import "./globals.css";
 import { Providers } from "./providers";
 import ClientOnly from "./components/ClientOnly";
 
@@ -22,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <ClientOnly>
+            <Modal actionLabel="Submit" isOpen title={"login"} />
             <Navbar />
           </ClientOnly>
           {children}

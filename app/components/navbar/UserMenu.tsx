@@ -15,8 +15,10 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const UserMenu = () => {
+  const registerModal = useRegisterModal();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -48,6 +50,8 @@ const UserMenu = () => {
             </DrawerHeader>
 
             <DrawerBody className="flex flex-col justify-evenly">
+              <MenuItem onClick={() => {}} label="login" />
+              <MenuItem onClick={registerModal.onOpen} label="sign up" />
               <MenuItem onClick={() => {}} label="ROOMS" />
               <MenuItem onClick={() => {}} label="ABOUT" />
               <MenuItem onClick={() => {}} label="ACTIVITIES" />

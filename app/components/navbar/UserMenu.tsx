@@ -29,9 +29,6 @@ const UserMenu = () => {
           className="p-4 md:px-2 flex flex-row items-center gap-3 rounded-full cursor-pointer"
         >
           <AiOutlineMenu />
-          <div className="hidden md:block">
-            <Avatar />
-          </div>
         </div>
 
         <Drawer
@@ -52,10 +49,10 @@ const UserMenu = () => {
             <DrawerBody className="flex flex-col justify-evenly">
               <MenuItem onClick={() => {}} label="login" />
               <MenuItem onClick={registerModal.onOpen} label="sign up" />
-              <MenuItem onClick={() => {}} label="ROOMS" />
-              <MenuItem onClick={() => {}} label="ABOUT" />
-              <MenuItem onClick={() => {}} label="ACTIVITIES" />
-              <MenuItem onClick={() => {}} label="CONTACT" />
+              <MenuItem onClick={() => {}} label="rooms" />
+              <MenuItem onClick={() => {}} label="about" />
+              <MenuItem onClick={() => {}} label="activities" />
+              <MenuItem onClick={() => {}} label="contact" />
             </DrawerBody>
 
             <Divider />

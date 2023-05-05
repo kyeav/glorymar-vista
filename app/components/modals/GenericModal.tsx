@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Button from "../Button";
 import {
+  Divider,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -79,25 +80,44 @@ const GenericModal: React.FC<ModalProps> = ({
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{title}</ModalHeader>
+          <ModalHeader>
+            <div className="text-center">{title}</div>
+          </ModalHeader>
+
+          <Divider />
+
           <ModalCloseButton />
+
           <ModalBody>{body}</ModalBody>
 
           <ModalFooter>
-            {secondaryAction && secondaryActionLabel && (
-              <Button
-                disabled={disabled}
-                label={secondaryActionLabel}
-                onClick={handleSecondaryAction}
-                outline
-              />
-            )}
-            <Button
-              disabled={disabled}
-              label={actionLabel}
-              onClick={handleSubmit}
-            />
-            {footer}
+            <div className="w-full flex flex-col gap-2">
+              <div
+                className="
+                    flex 
+                    flex-row 
+                    items-center 
+                    gap-4 
+                    w-full
+                  "
+              >
+                {secondaryAction && secondaryActionLabel && (
+                  <Button
+                    disabled={disabled}
+                    label={secondaryActionLabel}
+                    onClick={handleSecondaryAction}
+                    outline
+                  />
+                )}
+
+                <Button
+                  disabled={disabled}
+                  label={actionLabel}
+                  onClick={handleSubmit}
+                />
+              </div>
+              {footer}
+            </div>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -1,13 +1,17 @@
 "use client";
 
+import { User } from "@prisma/client";
 import Avatar from "../Avatar";
 import Container from "../Container";
-import GenericModal from "../modals/GenericModal";
 import BookNow from "./BookNow";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 
-const Navbar = () => {
+interface NavbarProps {
+  currentUser?: User | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
       <div className="py-4 border-b-[1px]">
@@ -16,7 +20,7 @@ const Navbar = () => {
             <Logo />
             <div className="flex items-center gap-3">
               <BookNow />
-              <UserMenu />
+              <UserMenu currentUser={currentUser} />
               <div className="hidden md:block">
                 <Avatar />
               </div>

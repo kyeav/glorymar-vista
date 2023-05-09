@@ -1,9 +1,5 @@
 "use client";
 
-import Avatar from "../Avatar";
-import { AiOutlineMenu } from "react-icons/ai";
-import { BsTelephone } from "react-icons/bs";
-import MenuItem from "./MenuItem";
 import {
   Divider,
   Drawer,
@@ -15,10 +11,23 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import useRegisterModal from "@/app/hooks/useRegisterModal";
+import { AiOutlineMenu } from "react-icons/ai";
+import { BsTelephone } from "react-icons/bs";
+import { signOut } from "next-auth/react";
 
-const UserMenu = () => {
+import MenuItem from "./MenuItem";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
+import { User } from "@prisma/client";
+
+interface UserMenuProps {
+  currentUser?: User | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -47,8 +56,26 @@ const UserMenu = () => {
             </DrawerHeader>
 
             <DrawerBody className="flex flex-col justify-evenly">
-              <MenuItem onClick={() => {}} label="login" />
-              <MenuItem onClick={registerModal.onOpen} label="sign up" />
+              {currentUser ? (
+                <>
+                  <MenuItem onClick={() => {}} label="my trips" />
+                  <MenuItem onClick={() => {}} label="my favorites" />
+                  <MenuItem onClick={() => {}} label="my reservations" />
+                  <MenuItem onClick={() => {}} label="my properties" />
+                  <MenuItem
+                    onClick={() => {
+                      signOut();
+                    }}
+                    label="logout"
+                  />
+                </>
+              ) : (
+                <>
+                  <MenuItem onClick={loginModal.onOpen} label="login" />
+                  <MenuItem onClick={registerModal.onOpen} label="sign up" />
+                </>
+              )}
+
               <MenuItem onClick={() => {}} label="rooms" />
               <MenuItem onClick={() => {}} label="about" />
               <MenuItem onClick={() => {}} label="activities" />

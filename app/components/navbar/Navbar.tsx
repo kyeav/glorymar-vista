@@ -1,14 +1,14 @@
 "use client";
 
-import { User } from "@prisma/client";
 import Avatar from "../Avatar";
 import Container from "../Container";
 import BookNow from "./BookNow";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
+import { SafeUser } from "@/app/types";
 
 interface NavbarProps {
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
@@ -22,7 +22,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
               <BookNow />
               <UserMenu currentUser={currentUser} />
               <div className="hidden md:block">
-                <Avatar />
+                <Avatar src={currentUser?.image} />
               </div>
             </div>
           </div>

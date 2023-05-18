@@ -9,6 +9,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
+import Hero from "./components/hero/Hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const currentUser = await getCurrentUser();
-  
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -34,6 +35,7 @@ export default async function RootLayout({
             <LoginModal />
             <RegisterModal />
             <Navbar currentUser={currentUser} />
+            <Hero />
           </ClientOnly>
           {children}
         </Providers>

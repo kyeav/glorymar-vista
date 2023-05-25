@@ -1,15 +1,17 @@
 import { Inter } from "next/font/google";
 
-import Navbar from "./components/navbar/Navbar";
-
 import "./globals.css";
-import { Providers } from "./providers";
+
+import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
-import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
-import getCurrentUser from "./actions/getCurrentUser";
 import Hero from "./components/hero/Hero";
+import RentModal from "./components/modals/RentModal";
+
+import { Providers } from "./providers";
+import ToasterProvider from "./providers/ToasterProvider";
+import getCurrentUser from "./actions/getCurrentUser";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +34,7 @@ export default async function RootLayout({
         <Providers>
           <ClientOnly>
             <ToasterProvider />
+            <RentModal />
             <LoginModal />
             <RegisterModal />
             <Navbar currentUser={currentUser} />

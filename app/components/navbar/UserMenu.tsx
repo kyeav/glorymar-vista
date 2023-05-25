@@ -19,6 +19,7 @@ import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { SafeUser } from "@/app/types";
+import useRentModal from "@/app/hooks/useRentModal";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -27,6 +28,7 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -62,6 +64,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   <MenuItem onClick={() => {}} label="my favorites" />
                   <MenuItem onClick={() => {}} label="my reservations" />
                   <MenuItem onClick={() => {}} label="my properties" />
+                  <MenuItem onClick={rentModal.onOpen} label="rent my home" />
                   <MenuItem
                     onClick={() => {
                       signOut();

@@ -9,7 +9,7 @@ import {
 
 const Hero = () => {
   return (
-    <div className="h-screen w-full fixed">
+    <div className="h-screen w-full fixed bg-[#978667]">
       <video className="absolute" autoPlay muted loop>
         <source src="./video/hero.mp4" type="video/mp4" />
       </video>
@@ -29,35 +29,59 @@ const Hero = () => {
             </h3>
           </div>
 
-          <div className="flex flex-col w-full gap-y-2">
+          <div className="w-full flex flex-col gap-y-2">
             <InputGroup>
-              <Input placeholder="Check in / Check out" />
+              <Input
+                border={"none"}
+                bg={"#FFF"}
+                _hover={{ bg: "#FFF" }}
+                _focus={{ bg: "#FFF" }}
+                variant={"filled"}
+                _placeholder={{ opacity: 1, color: "#6c757d" }}
+                placeholder="Check in / Check out"
+              />
               <InputRightElement>
-                <AiOutlineCalendar />
+                <AiOutlineCalendar className="text-[#978667]" />
               </InputRightElement>
             </InputGroup>
 
-            <div className="sm:flex sm:flex-row sm:gap-x-2 gap-y-2">
+            <div className="sm:flex sm:flex-row sm:gap-x-2 flex flex-col gap-y-2">
               <InputGroup>
-                <Input placeholder="Adults" />
+                <Input
+                  border={"none"}
+                  bg={"#FFF"}
+                  _hover={{ bg: "#FFF" }}
+                  _focus={{ bg: "#FFF" }}
+                  variant={"filled"}
+                  _placeholder={{ opacity: 1, color: "#6c757d" }}
+                  placeholder="Adults"
+                />
                 <InputRightElement>
-                  <AiFillPlusCircle />
-                  <AiFillMinusCircle />
+                  <AiFillPlusCircle className="text-[#978667]" />
+                  <AiFillMinusCircle className="text-[#978667]" />
                 </InputRightElement>
               </InputGroup>
 
               <InputGroup>
-                <Input placeholder="Children" />
+                <Input
+                  border={"none"}
+                  bg={"#FFF"}
+                  _hover={{ bg: "#FFF" }}
+                  _focus={{ bg: "#FFF" }}
+                  variant={"filled"}
+                  _placeholder={{ opacity: 1, color: "#6c757d" }}
+                  placeholder="Children"
+                />
                 <InputRightElement>
-                  <AiFillPlusCircle />
-                  <AiFillMinusCircle />
+                  <AiFillPlusCircle className="text-[#978667]" />
+                  <AiFillMinusCircle className="text-[#978667]" />
                 </InputRightElement>
               </InputGroup>
             </div>
           </div>
 
-          <div>
-            <Button className="bg-[#333] hover:bg-[#978667] border-none text-white w-full">
+          <div className="w-full">
+            <Button className="bg-[#333] hover:bg-[#ebd7b2] border-none text-white hover:text-black w-full">
               Search
             </Button>
           </div>

@@ -11,6 +11,7 @@ import Heading from "../Heading";
 import CountrySelect from "../inputs/CountrySelect";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
+import Input from "../inputs/Input";
 
 enum STEPS {
   LOCATION = 0,
@@ -24,6 +25,7 @@ const RentModal = () => {
   const rentModal = useRentModal();
 
   const [step, setStep] = useState(STEPS.LOCATION);
+  const [isloading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -141,6 +143,34 @@ const RentModal = () => {
         <ImageUpload
           value={imageSrc}
           onChange={(value) => setCustomValue("imageSrc", value)}
+        />
+      </div>
+    );
+  }
+
+  if (step === STEPS.DESCRIPTION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="How would you describe your place?"
+          subtitle="Short and sweet works best!"
+        />
+        <Input
+          id="title"
+          label="Title"
+          register={register}
+          errors={errors}
+          disabled={isloading}
+          required
+        />
+        <hr />
+        <Input
+          id="description"
+          label="Description"
+          register={register}
+          errors={errors}
+          disabled={isloading}
+          required
         />
       </div>
     );

@@ -9,6 +9,7 @@ import useRentModal from "@/app/hooks/useRentModal";
 import GenericModal from "./GenericModal";
 import Heading from "../Heading";
 import CountrySelect from "../inputs/CountrySelect";
+import Counter from "../inputs/Counter";
 
 enum STEPS {
   LOCATION = 0,
@@ -44,6 +45,9 @@ const RentModal = () => {
   });
 
   const location = watch("location");
+  const roomCount = watch("roomCount");
+  const bathroomCount = watch("bathroomCount");
+  const guestCount = watch("guestCount");
 
   const Map = useMemo(
     () => dynamic(() => import("../Map"), { ssr: false }),
@@ -95,7 +99,34 @@ const RentModal = () => {
   );
 
   if (step === STEPS.INFO) {
-    bodyContent = <div>Info Step!</div>;
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Share some basics about your place"
+          subtitle="What amenities do you have?"
+        />
+        <Counter
+          title="Rooms"
+          subtitle="How many rooms do you have?"
+          value={roomCount}
+          onChange={(value) => setCustomValue("roomCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you have?"
+          value={bathroomCount}
+          onChange={(value) => setCustomValue("bathroomCount", value)}
+        />
+        <hr />
+        <Counter
+          title="Guests"
+          subtitle="How many guests do you allow?"
+          value={guestCount}
+          onChange={(value) => setCustomValue("guestCount", value)}
+        />
+      </div>
+    );
   }
 
   return (

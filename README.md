@@ -40,3 +40,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Use Google Maps
 - Add unit testing
 - [https://www.ansonika.com/paradise/index-4.html]
+
+## Tools
+
+- Google Cloud Platform
+- MongoDB
+- Cloudinary

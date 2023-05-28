@@ -40,9 +40,16 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Use Google Maps
 - Add unit testing
 - [https://www.ansonika.com/paradise/index-4.html]
+- Support upload of >1 photo for listing creation
+- Support dynamic currency for listing creation
 
 ## Tools
 
 - Google Cloud Platform
 - MongoDB
 - Cloudinary
+
+## Bugs
+
+- Price & title inputs are somehow connected in rent modal
+- Input.tsx not displaying arrows for input of type number

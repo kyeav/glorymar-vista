@@ -9,8 +9,8 @@ import {
 
 const Hero = () => {
   return (
-    <div className="h-screen w-full fixed bg-[#978667]">
-      <video className="absolute" autoPlay muted loop>
+    <div className="h-screen bg-[#978667]">
+      <video className="h-full w-full absolute" autoPlay muted loop>
         <source src="./video/hero.mp4" type="video/mp4" />
       </video>
 

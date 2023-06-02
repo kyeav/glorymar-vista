@@ -6,7 +6,6 @@ import Navbar from "./components/navbar/Navbar";
 import ClientOnly from "./components/ClientOnly";
 import RegisterModal from "./components/modals/RegisterModal";
 import LoginModal from "./components/modals/LoginModal";
-import Hero from "./components/hero/Hero";
 import RentModal from "./components/modals/RentModal";
 
 import { Providers } from "./providers";
@@ -38,7 +37,6 @@ export default async function RootLayout({
             <LoginModal />
             <RegisterModal />
             <Navbar currentUser={currentUser} />
-            <Hero />
           </ClientOnly>
           {children}
         </Providers>

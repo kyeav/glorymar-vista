@@ -7,10 +7,10 @@ import Container from "../Container";
 import BookNow from "./BookNow";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
+
 import { SafeUser } from "@/app/types";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRentModal from "@/app/hooks/useRentModal";
-
 interface NavbarProps {
   currentUser?: SafeUser | null;
 }
